@@ -1,502 +1,480 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!doctype html>
+<html lang="en">
 <head>
-<!-- 2017-01-19 Thu 11:51 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="jzhong12" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
+<!-- 2017-01-19 Thu 18:13 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Jie Zhong">
 
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
     padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
 </style>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
+$(function() {
+    'use strict';
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+    $('.bs-docs-sidebar li').first().addClass('active');
 
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
 
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
+    $('.bs-docs-sidebar').affix();
 });
 </script>
-<script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
 </head>
 <body>
-<div id="content">
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orga02e9d7">1. Links</a>
-<ul>
-<li><a href="#orgc1daebc">1.1. test</a></li>
-<li><a href="#orgdf2fbdc">1.2. Python Tutorial: Python Online Course&#xa0;&#xa0;&#xa0;<span class="tag"><span class="python">python</span></span></a></li>
-<li><a href="#org9ba4f30">1.3. Extract a single file from a git repository&#xa0;&#xa0;&#xa0;<span class="tag"><span class="git">git</span></span></a></li>
-<li><a href="#orgc07b508">1.4. typcn/163music-mac-client-unlock: Unlock netease music mac client using dylib inject&#xa0;&#xa0;&#xa0;<span class="tag"><span class="music">music</span></span></a></li>
-<li><a href="#org3979f61">1.5. ‎Venn diagrams templates in LaTex&#xa0;&#xa0;&#xa0;<span class="tag"><span class="latex">latex</span></span></a></li>
-<li><a href="#orgcec18fc">1.6. how to start outline-minor-mode with latex-mode? - Emacs Stack Exchange&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span>&#xa0;<span class="latex">latex</span></span></a></li>
-<li><a href="#org0634d7a">1.7. christhomson/lecture-notes: LaTeX notes for a few courses I've taken at the University of Waterloo.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="latex">latex</span></span></a></li>
-<li><a href="#org47b9374">1.8. Git教程 - 廖雪峰的官方网站&#xa0;&#xa0;&#xa0;<span class="tag"><span class="git">git</span></span></a></li>
-<li><a href="#org22b976e">1.9. When should I use \input vs. \include? - TeX - LaTeX Stack Exchange&#xa0;&#xa0;&#xa0;<span class="tag"><span class="latex">latex</span></span></a></li>
-<li><a href="#org427d86e">1.10. xetex - How to include part of an external git hash as text inside a document? - TeX - LaTeX Stack Exchange&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span>&#xa0;<span class="latex">latex</span></span></a></li>
-<li><a href="#orga2af481">1.11. Writing Specs with Org-mode - Katherine Cox-Buday&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span>&#xa0;<span class="latex">latex</span></span></a></li>
-<li><a href="#orga2dd3cd">1.12. Emacs org-mode examples and cookbook&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></a></li>
-<li><a href="#orged6fd1f">1.13. christhomson/lecture-notes: LaTeX notes for a few courses I've taken at the University of Waterloo.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="latex">latex</span></span></a></li>
-<li><a href="#org1b33ef6">1.14. ISLR-solution in python&#xa0;&#xa0;&#xa0;<span class="tag"><span class="python">python</span>&#xa0;<span class="ML">ML</span></span></a></li>
-<li><a href="#org88b8646">1.15. Matplotlib 数据可视化神器 Python - YouTube&#xa0;&#xa0;&#xa0;<span class="tag"><span class="python">python</span></span></a></li>
-<li><a href="#orgfd3a2c7">1.16. European Auto Hause - 41 Photos &amp; 201 Reviews - Auto Repair - 1599 E Walnut St, Pasadena, Pasadena, CA - Phone Number - Yelp&#xa0;&#xa0;&#xa0;<span class="tag"><span class="family">family</span></span></a></li>
-<li><a href="#orgc1a5ba3">1.17. 子龙山人配置&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></a></li>
-<li><a href="#orgb6fb9c4">1.18. Vim cheat sheet&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></a></li>
-<li><a href="#orge6e7f54">1.19. org capture&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></a></li>
-<li><a href="#org4c41fa8">1.20. sorting alg&#xa0;&#xa0;&#xa0;<span class="tag"><span class="python">python</span></span></a></li>
-<li><a href="#org1b36662">1.21. spacemacs layers&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></a></li>
-<li><a href="#orgbb036ec">1.22. make a pull request for spacemacs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></a></li>
-<li><a href="#org43b40b2">1.23. 给org-pomodoro增加桌面通知功能&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></a></li>
-</ul>
-</li>
-<li><a href="#orgc30efcf">2. IT</a></li>
-<li><a href="#org8b72d51">3. math</a></li>
-<li><a href="#org658863c">4. family</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orga02e9d7" class="outline-2">
-<h2 id="orga02e9d7"><span class="section-number-2">1</span> Links</h2>
+<div id="content" class="container">
+<div class="row"><div class="col-md-9"><h1 class="title"></h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Links</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgc1daebc" class="outline-3">
-<h3 id="orgc1daebc"><span class="section-number-3">1.1</span> test</h3>
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> <a href="https://www.youtube.com/watch?v=D_DZ9IISRzE&amp;index=6&amp;list=PLZx9tb9Niew-_5L1NGVPBibUy6XcYZOFl&amp;t=332s">使用Org-mode 来写博客 - YouTube</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-<span class="timestamp-wrapper"><span class="timestamp">[2017-01-19 Thu 11:47]</span></span>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-19 Thu 16:28]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-orgdf2fbdc" class="outline-3">
-<h3 id="orgdf2fbdc"><span class="section-number-3">1.2</span> <a href="http://www.python-course.eu/course.php">Python Tutorial: Python Online Course</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="python">python</span></span></h3>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> <a href="https://www.youtube.com/playlist?list=PL-61yFRAEMlXDnsm3VHfrAm4oT6vVylRG">Spacemacs Rocks 第二季 - YouTube</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h3>
 <div class="outline-text-3" id="text-1-2">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-19 Thu 14:57]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> <a href="http://www.python-course.eu/course.php">Python Tutorial: Python Online Course</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span></h3>
+<div class="outline-text-3" id="text-1-3">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-19 Thu 08:36]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-org9ba4f30" class="outline-3">
-<h3 id="org9ba4f30"><span class="section-number-3">1.3</span> <a href="https://gist.github.com/ssp/1663093">Extract a single file from a git repository</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="git">git</span></span></h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> <a href="https://gist.github.com/ssp/1663093">Extract a single file from a git repository</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge git">git</span></span></h3>
+<div class="outline-text-3" id="text-1-4">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-18 Wed 22:03]</span></span>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgc07b508" class="outline-3">
-<h3 id="orgc07b508"><span class="section-number-3">1.4</span> <a href="https://github.com/typcn/163music-mac-client-unlock">typcn/163music-mac-client-unlock: Unlock netease music mac client using dylib inject</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="music">music</span></span></h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> <a href="https://github.com/typcn/163music-mac-client-unlock">typcn/163music-mac-client-unlock: Unlock netease music mac client using dylib inject</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge music">music</span></span></h3>
+<div class="outline-text-3" id="text-1-5">
 <p>
 163music unlock
  <span class="timestamp-wrapper"><span class="timestamp">[2017-01-18 Wed 21:59]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-org3979f61" class="outline-3">
-<h3 id="org3979f61"><span class="section-number-3">1.5</span> <a href="http://users.ju.edu/hduong/math220/venn_diagrams.pdf">‎Venn diagrams templates in LaTex</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="latex">latex</span></span></h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> <a href="http://users.ju.edu/hduong/math220/venn_diagrams.pdf">‎Venn diagrams templates in LaTex</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge latex">latex</span></span></h3>
+<div class="outline-text-3" id="text-1-6">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-18 Wed 17:26]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-orgcec18fc" class="outline-3">
-<h3 id="orgcec18fc"><span class="section-number-3">1.6</span> <a href="http://emacs.stackexchange.com/questions/17954/how-to-start-outline-minor-mode-with-latex-mode">how to start outline-minor-mode with latex-mode? - Emacs Stack Exchange</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span>&#xa0;<span class="latex">latex</span></span></h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> <a href="http://emacs.stackexchange.com/questions/17954/how-to-start-outline-minor-mode-with-latex-mode">how to start outline-minor-mode with latex-mode? - Emacs Stack Exchange</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span>&#xa0;<span class="badge latex">latex</span></span></h3>
+<div class="outline-text-3" id="text-1-7">
 <p>
 activate outline minor mode for AucTex
  <span class="timestamp-wrapper"><span class="timestamp">[2017-01-18 Wed 10:50]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-org0634d7a" class="outline-3">
-<h3 id="org0634d7a"><span class="section-number-3">1.7</span> <a href="https://github.com/christhomson/lecture-notes">christhomson/lecture-notes: LaTeX notes for a few courses I've taken at the University of Waterloo.</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="latex">latex</span></span></h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> <a href="https://github.com/christhomson/lecture-notes">christhomson/lecture-notes: LaTeX notes for a few courses I've taken at the University of Waterloo.</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge latex">latex</span></span></h3>
+<div class="outline-text-3" id="text-1-8">
 <p>
 lecture notes templates
  <span class="timestamp-wrapper"><span class="timestamp">[2017-01-17 Tue 19:45]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-org47b9374" class="outline-3">
-<h3 id="org47b9374"><span class="section-number-3">1.8</span> <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git教程 - 廖雪峰的官方网站</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="git">git</span></span></h3>
-<div class="outline-text-3" id="text-1-8">
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git教程 - 廖雪峰的官方网站</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge git">git</span></span></h3>
+<div class="outline-text-3" id="text-1-9">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-12 Thu 16:24]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-org22b976e" class="outline-3">
-<h3 id="org22b976e"><span class="section-number-3">1.9</span> <a href="http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include">When should I use \input vs. \include? - TeX - LaTeX Stack Exchange</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="latex">latex</span></span></h3>
-<div class="outline-text-3" id="text-1-9">
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10"><span class="section-number-3">1.10</span> <a href="http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include">When should I use \input vs. \include? - TeX - LaTeX Stack Exchange</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge latex">latex</span></span></h3>
+<div class="outline-text-3" id="text-1-10">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-12 Thu 14:26]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-org427d86e" class="outline-3">
-<h3 id="org427d86e"><span class="section-number-3">1.10</span> <a href="http://tex.stackexchange.com/questions/140991/how-to-include-part-of-an-external-git-hash-as-text-inside-a-document">xetex - How to include part of an external git hash as text inside a document? - TeX - LaTeX Stack Exchange</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span>&#xa0;<span class="latex">latex</span></span></h3>
-<div class="outline-text-3" id="text-1-10">
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11"><span class="section-number-3">1.11</span> <a href="http://tex.stackexchange.com/questions/140991/how-to-include-part-of-an-external-git-hash-as-text-inside-a-document">xetex - How to include part of an external git hash as text inside a document? - TeX - LaTeX Stack Exchange</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span>&#xa0;<span class="badge latex">latex</span></span></h3>
+<div class="outline-text-3" id="text-1-11">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-12 Thu 12:28]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-orga2af481" class="outline-3">
-<h3 id="orga2af481"><span class="section-number-3">1.11</span> <a href="http://katherine.cox-buday.com/blog/2015/03/14/writing-specs-with-org-mode/">Writing Specs with Org-mode - Katherine Cox-Buday</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span>&#xa0;<span class="latex">latex</span></span></h3>
-<div class="outline-text-3" id="text-1-11">
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12"><span class="section-number-3">1.12</span> <a href="http://katherine.cox-buday.com/blog/2015/03/14/writing-specs-with-org-mode/">Writing Specs with Org-mode - Katherine Cox-Buday</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span>&#xa0;<span class="badge latex">latex</span></span></h3>
+<div class="outline-text-3" id="text-1-12">
 <p>
 In particular, export to latex.
  <span class="timestamp-wrapper"><span class="timestamp">[2017-01-11 Wed 20:45]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-orga2dd3cd" class="outline-3">
-<h3 id="orga2dd3cd"><span class="section-number-3">1.12</span> <a href="http://ehneilsen.net/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></h3>
-<div class="outline-text-3" id="text-1-12">
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13"><span class="section-number-3">1.13</span> <a href="http://ehneilsen.net/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h3>
+<div class="outline-text-3" id="text-1-13">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-11 Wed 16:10]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-orged6fd1f" class="outline-3">
-<h3 id="orged6fd1f"><span class="section-number-3">1.13</span> <a href="https://github.com/christhomson/lecture-notes">christhomson/lecture-notes: LaTeX notes for a few courses I've taken at the University of Waterloo.</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="latex">latex</span></span></h3>
-<div class="outline-text-3" id="text-1-13">
+<div id="outline-container-sec-1-14" class="outline-3">
+<h3 id="sec-1-14"><span class="section-number-3">1.14</span> <a href="https://github.com/christhomson/lecture-notes">christhomson/lecture-notes: LaTeX notes for a few courses I've taken at the University of Waterloo.</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge latex">latex</span></span></h3>
+<div class="outline-text-3" id="text-1-14">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-11 Wed 15:59]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-org1b33ef6" class="outline-3">
-<h3 id="org1b33ef6"><span class="section-number-3">1.14</span> <a href="https://github.com/sujitpal/statlearning-notebooks">ISLR-solution in python</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="python">python</span>&#xa0;<span class="ML">ML</span></span></h3>
-<div class="outline-text-3" id="text-1-14">
+<div id="outline-container-sec-1-15" class="outline-3">
+<h3 id="sec-1-15"><span class="section-number-3">1.15</span> <a href="https://github.com/sujitpal/statlearning-notebooks">ISLR-solution in python</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span>&#xa0;<span class="badge ML">ML</span></span></h3>
+<div class="outline-text-3" id="text-1-15">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-11 Wed 15:56]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-org88b8646" class="outline-3">
-<h3 id="org88b8646"><span class="section-number-3">1.15</span> <a href="https://www.youtube.com/playlist?list=PLXO45tsB95cKiBRXYqNNCw8AUo6tYen3l">Matplotlib 数据可视化神器 Python - YouTube</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="python">python</span></span></h3>
-<div class="outline-text-3" id="text-1-15">
+<div id="outline-container-sec-1-16" class="outline-3">
+<h3 id="sec-1-16"><span class="section-number-3">1.16</span> <a href="https://www.youtube.com/playlist?list=PLXO45tsB95cKiBRXYqNNCw8AUo6tYen3l">Matplotlib 数据可视化神器 Python - YouTube</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span></h3>
+<div class="outline-text-3" id="text-1-16">
 <p>
 Matplotlib tutorial by Morvan (Chinese guy)
  <span class="timestamp-wrapper"><span class="timestamp">[2017-01-10 Tue 16:11]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-orgfd3a2c7" class="outline-3">
-<h3 id="orgfd3a2c7"><span class="section-number-3">1.16</span> <a href="https://www.yelp.com/biz/european-auto-hause-pasadena-5?osq=independent+audi">European Auto Hause - 41 Photos &amp; 201 Reviews - Auto Repair - 1599 E Walnut St, Pasadena, Pasadena, CA - Phone Number - Yelp</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="family">family</span></span></h3>
-<div class="outline-text-3" id="text-1-16">
+<div id="outline-container-sec-1-17" class="outline-3">
+<h3 id="sec-1-17"><span class="section-number-3">1.17</span> <a href="https://www.yelp.com/biz/european-auto-hause-pasadena-5?osq=independent+audi">European Auto Hause - 41 Photos &amp; 201 Reviews - Auto Repair - 1599 E Walnut St, Pasadena, Pasadena, CA - Phone Number - Yelp</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge family">family</span></span></h3>
+<div class="outline-text-3" id="text-1-17">
 <p>
   German car shop in Pasadena
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-10 Tue 13:46]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-orgc1a5ba3" class="outline-3">
-<h3 id="orgc1a5ba3"><span class="section-number-3">1.17</span> <a href="https://github.com/zilongshanren/spacemacs-private">子龙山人配置</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></h3>
-<div class="outline-text-3" id="text-1-17">
+<div id="outline-container-sec-1-18" class="outline-3">
+<h3 id="sec-1-18"><span class="section-number-3">1.18</span> <a href="https://github.com/zilongshanren/spacemacs-private">子龙山人配置</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h3>
+<div class="outline-text-3" id="text-1-18">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-08 Sun 20:38]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-orgb6fb9c4" class="outline-3">
-<h3 id="orgb6fb9c4"><span class="section-number-3">1.18</span> <a href="https://vim.rtorr.com">Vim cheat sheet</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></h3>
-<div class="outline-text-3" id="text-1-18">
+<div id="outline-container-sec-1-19" class="outline-3">
+<h3 id="sec-1-19"><span class="section-number-3">1.19</span> <a href="https://vim.rtorr.com">Vim cheat sheet</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h3>
+<div class="outline-text-3" id="text-1-19">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-08 Sun 00:35]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-orge6e7f54" class="outline-3">
-<h3 id="orge6e7f54"><span class="section-number-3">1.19</span> <a href="http://cestlaz.github.io/posts/using-emacs-23-capture-1/#.WG7VLLGZMUQ">org capture</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></h3>
-<div class="outline-text-3" id="text-1-19">
+<div id="outline-container-sec-1-20" class="outline-3">
+<h3 id="sec-1-20"><span class="section-number-3">1.20</span> <a href="http://cestlaz.github.io/posts/using-emacs-23-capture-1/#.WG7VLLGZMUQ">org capture</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h3>
+<div class="outline-text-3" id="text-1-20">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 21:20]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-org4c41fa8" class="outline-3">
-<h3 id="org4c41fa8"><span class="section-number-3">1.20</span> <a href="https://www.raspberrypi.org/learning/visualising-sorting-with-python/">sorting alg</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="python">python</span></span></h3>
-<div class="outline-text-3" id="text-1-20">
+<div id="outline-container-sec-1-21" class="outline-3">
+<h3 id="sec-1-21"><span class="section-number-3">1.21</span> <a href="https://www.raspberrypi.org/learning/visualising-sorting-with-python/">sorting alg</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span></h3>
+<div class="outline-text-3" id="text-1-21">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 20:57]</span></span>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1b36662" class="outline-3">
-<h3 id="org1b36662"><span class="section-number-3">1.21</span> <a href="http://spacemacs.org/layers/LAYERS.html">spacemacs layers</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></h3>
-<div class="outline-text-3" id="text-1-21">
+<div id="outline-container-sec-1-22" class="outline-3">
+<h3 id="sec-1-22"><span class="section-number-3">1.22</span> <a href="http://spacemacs.org/layers/LAYERS.html">spacemacs layers</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h3>
+<div class="outline-text-3" id="text-1-22">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 15:54]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-orgbb036ec" class="outline-3">
-<h3 id="orgbb036ec"><span class="section-number-3">1.22</span> <a href="http://iam.travishartwell.net/2015/07/29/how-to-make-a-pr-for-spacemacs/">make a pull request for spacemacs</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></h3>
-<div class="outline-text-3" id="text-1-22">
+<div id="outline-container-sec-1-23" class="outline-3">
+<h3 id="sec-1-23"><span class="section-number-3">1.23</span> <a href="http://iam.travishartwell.net/2015/07/29/how-to-make-a-pr-for-spacemacs/">make a pull request for spacemacs</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h3>
+<div class="outline-text-3" id="text-1-23">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 11:35]</span></span>
 </p>
 </div>
 </div>
-<div id="outline-container-org43b40b2" class="outline-3">
-<h3 id="org43b40b2"><span class="section-number-3">1.23</span> <a href="http://guleilab.com/2016/05/05/OrgPomodoroNotifier/">给org-pomodoro增加桌面通知功能</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="emacs">emacs</span></span></h3>
-<div class="outline-text-3" id="text-1-23">
+<div id="outline-container-sec-1-24" class="outline-3">
+<h3 id="sec-1-24"><span class="section-number-3">1.24</span> <a href="http://guleilab.com/2016/05/05/OrgPomodoroNotifier/">给org-pomodoro增加桌面通知功能</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h3>
+<div class="outline-text-3" id="text-1-24">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2017-01-05 Thu 16:34]</span></span>
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc30efcf" class="outline-2">
-<h2 id="orgc30efcf"><span class="section-number-2">2</span> IT</h2>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> IT</h2>
 </div>
-<div id="outline-container-org8b72d51" class="outline-2">
-<h2 id="org8b72d51"><span class="section-number-2">3</span> math</h2>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> math</h2>
 </div>
-<div id="outline-container-org658863c" class="outline-2">
-<h2 id="org658863c"><span class="section-number-2">4</span> family</h2>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> family</h2>
 </div>
+</div><div class="col-md-3"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. Links</a>
+<ul class="nav">
+<li><a href="#sec-1-1">1.1. 使用Org-mode 来写博客 - YouTube</a></li>
+<li><a href="#sec-1-2">1.2. Spacemacs Rocks 第二季 - YouTube</a></li>
+<li><a href="#sec-1-3">1.3. Python Tutorial: Python Online Course</a></li>
+<li><a href="#sec-1-4">1.4. Extract a single file from a git repository</a></li>
+<li><a href="#sec-1-5">1.5. typcn/163music-mac-client-unlock: Unlock netease music mac client using dylib inject</a></li>
+<li><a href="#sec-1-6">1.6. ‎Venn diagrams templates in LaTex</a></li>
+<li><a href="#sec-1-7">1.7. how to start outline-minor-mode with latex-mode? - Emacs Stack Exchange</a></li>
+<li><a href="#sec-1-8">1.8. christhomson/lecture-notes: LaTeX notes for a few courses I've taken at the University of Waterloo.</a></li>
+<li><a href="#sec-1-9">1.9. Git教程 - 廖雪峰的官方网站</a></li>
+<li><a href="#sec-1-10">1.10. When should I use \input vs. \include? - TeX - LaTeX Stack Exchange</a></li>
+<li><a href="#sec-1-11">1.11. xetex - How to include part of an external git hash as text inside a document? - TeX - LaTeX Stack Exchange</a></li>
+<li><a href="#sec-1-12">1.12. Writing Specs with Org-mode - Katherine Cox-Buday</a></li>
+<li><a href="#sec-1-13">1.13. Emacs org-mode examples and cookbook</a></li>
+<li><a href="#sec-1-14">1.14. christhomson/lecture-notes: LaTeX notes for a few courses I've taken at the University of Waterloo.</a></li>
+<li><a href="#sec-1-15">1.15. ISLR-solution in python</a></li>
+<li><a href="#sec-1-16">1.16. Matplotlib 数据可视化神器 Python - YouTube</a></li>
+<li><a href="#sec-1-17">1.17. European Auto Hause - 41 Photos &amp; 201 Reviews - Auto Repair - 1599 E Walnut St, Pasadena, Pasadena, CA - Phone Number - Yelp</a></li>
+<li><a href="#sec-1-18">1.18. 子龙山人配置</a></li>
+<li><a href="#sec-1-19">1.19. Vim cheat sheet</a></li>
+<li><a href="#sec-1-20">1.20. org capture</a></li>
+<li><a href="#sec-1-21">1.21. sorting alg</a></li>
+<li><a href="#sec-1-22">1.22. spacemacs layers</a></li>
+<li><a href="#sec-1-23">1.23. make a pull request for spacemacs</a></li>
+<li><a href="#sec-1-24">1.24. 给org-pomodoro增加桌面通知功能</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. IT</a></li>
+<li><a href="#sec-3">3. math</a></li>
+<li><a href="#sec-4">4. family</a></li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="author">Author: jzhong12</p>
-<p class="date">Created: 2017-01-19 Thu 11:51</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</nav>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Jie Zhong</p>
+<p class="date">Created: 2017-01-19 Thu 18:13</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org-mode</a> 9.0.3)</p>
 </div>
+</footer>
 </body>
 </html>
