@@ -1,0 +1,1370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title></title>
+<!-- 2017-01-30 Mon 18:12 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Jie Zhong">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script type="text/javascript">
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-9"><h1 class="title"></h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Links</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> to read</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> <a href="http://spacemacs.org/layers/+emacs/org/README.html#pomodoro">Org layer</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-30 Mon 18:02]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> <a href="https://blog.15cm.net/2016/12/10/emacs-notes-system/">使用 Emacs Org-mode 构建笔记系统 | 15cmの窓から</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span>&#xa0;<span class="badge blog">blog</span></span></h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-19 Thu 20:57]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> <a href="https://www.youtube.com/watch?v=D_DZ9IISRzE&amp;index=6&amp;list=PLZx9tb9Niew-_5L1NGVPBibUy6XcYZOFl&amp;t=332s">使用Org-mode 来写博客 - YouTube</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-19 Thu 16:28]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-4" class="outline-4">
+<h4 id="sec-1-1-4"><span class="section-number-4">1.1.4</span> <a href="https://www.youtube.com/playlist?list=PL-61yFRAEMlXDnsm3VHfrAm4oT6vVylRG">Spacemacs Rocks 第二季 - YouTube</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-19 Thu 14:57]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-5" class="outline-4">
+<h4 id="sec-1-1-5"><span class="section-number-4">1.1.5</span> <a href="http://www.python-course.eu/course.php">Python Tutorial: Python Online Course</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span></h4>
+<div class="outline-text-4" id="text-1-1-5">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-19 Thu 08:36]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-6" class="outline-4">
+<h4 id="sec-1-1-6"><span class="section-number-4">1.1.6</span> <a href="https://gist.github.com/ssp/1663093">Extract a single file from a git repository</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge git">git</span></span></h4>
+<div class="outline-text-4" id="text-1-1-6">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-18 Wed 22:03]</span></span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-7" class="outline-4">
+<h4 id="sec-1-1-7"><span class="section-number-4">1.1.7</span> <a href="https://github.com/typcn/163music-mac-client-unlock">typcn/163music-mac-client-unlock: Unlock netease music mac client using dylib inject</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge music">music</span></span></h4>
+<div class="outline-text-4" id="text-1-1-7">
+<p>
+163music unlock
+ <span class="timestamp-wrapper"><span class="timestamp">[2017-01-18 Wed 21:59]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-8" class="outline-4">
+<h4 id="sec-1-1-8"><span class="section-number-4">1.1.8</span> <a href="http://users.ju.edu/hduong/math220/venn_diagrams.pdf">‎Venn diagrams templates in LaTex</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge latex">latex</span></span></h4>
+<div class="outline-text-4" id="text-1-1-8">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-18 Wed 17:26]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-9" class="outline-4">
+<h4 id="sec-1-1-9"><span class="section-number-4">1.1.9</span> <a href="http://emacs.stackexchange.com/questions/17954/how-to-start-outline-minor-mode-with-latex-mode">how to start outline-minor-mode with latex-mode? - Emacs Stack Exchange</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span>&#xa0;<span class="badge latex">latex</span></span></h4>
+<div class="outline-text-4" id="text-1-1-9">
+<p>
+activate outline minor mode for AucTex
+ <span class="timestamp-wrapper"><span class="timestamp">[2017-01-18 Wed 10:50]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-10" class="outline-4">
+<h4 id="sec-1-1-10"><span class="section-number-4">1.1.10</span> <a href="https://github.com/christhomson/lecture-notes">christhomson/lecture-notes: LaTeX notes for a few courses I've taken at the University of Waterloo.</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge latex">latex</span></span></h4>
+<div class="outline-text-4" id="text-1-1-10">
+<p>
+lecture notes templates
+ <span class="timestamp-wrapper"><span class="timestamp">[2017-01-17 Tue 19:45]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-11" class="outline-4">
+<h4 id="sec-1-1-11"><span class="section-number-4">1.1.11</span> <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git教程 - 廖雪峰的官方网站</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge git">git</span></span></h4>
+<div class="outline-text-4" id="text-1-1-11">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-12 Thu 16:24]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-12" class="outline-4">
+<h4 id="sec-1-1-12"><span class="section-number-4">1.1.12</span> <a href="http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include">When should I use \input vs. \include? - TeX - LaTeX Stack Exchange</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge latex">latex</span></span></h4>
+<div class="outline-text-4" id="text-1-1-12">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-12 Thu 14:26]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-13" class="outline-4">
+<h4 id="sec-1-1-13"><span class="section-number-4">1.1.13</span> <a href="http://tex.stackexchange.com/questions/140991/how-to-include-part-of-an-external-git-hash-as-text-inside-a-document">xetex - How to include part of an external git hash as text inside a document? - TeX - LaTeX Stack Exchange</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span>&#xa0;<span class="badge latex">latex</span></span></h4>
+<div class="outline-text-4" id="text-1-1-13">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-12 Thu 12:28]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-14" class="outline-4">
+<h4 id="sec-1-1-14"><span class="section-number-4">1.1.14</span> <a href="http://katherine.cox-buday.com/blog/2015/03/14/writing-specs-with-org-mode/">Writing Specs with Org-mode - Katherine Cox-Buday</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span>&#xa0;<span class="badge latex">latex</span></span></h4>
+<div class="outline-text-4" id="text-1-1-14">
+<p>
+In particular, export to latex.
+ <span class="timestamp-wrapper"><span class="timestamp">[2017-01-11 Wed 20:45]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-15" class="outline-4">
+<h4 id="sec-1-1-15"><span class="section-number-4">1.1.15</span> <a href="http://ehneilsen.net/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h4>
+<div class="outline-text-4" id="text-1-1-15">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-11 Wed 16:10]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-16" class="outline-4">
+<h4 id="sec-1-1-16"><span class="section-number-4">1.1.16</span> <a href="https://github.com/christhomson/lecture-notes">christhomson/lecture-notes: LaTeX notes for a few courses I've taken at the University of Waterloo.</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge latex">latex</span></span></h4>
+<div class="outline-text-4" id="text-1-1-16">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-11 Wed 15:59]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-17" class="outline-4">
+<h4 id="sec-1-1-17"><span class="section-number-4">1.1.17</span> <a href="https://github.com/sujitpal/statlearning-notebooks">ISLR-solution in python</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span>&#xa0;<span class="badge ML">ML</span></span></h4>
+<div class="outline-text-4" id="text-1-1-17">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-11 Wed 15:56]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-18" class="outline-4">
+<h4 id="sec-1-1-18"><span class="section-number-4">1.1.18</span> <a href="https://www.youtube.com/playlist?list=PLXO45tsB95cKiBRXYqNNCw8AUo6tYen3l">Matplotlib 数据可视化神器 Python - YouTube</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span></h4>
+<div class="outline-text-4" id="text-1-1-18">
+<p>
+Matplotlib tutorial by Morvan (Chinese guy)
+ <span class="timestamp-wrapper"><span class="timestamp">[2017-01-10 Tue 16:11]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-19" class="outline-4">
+<h4 id="sec-1-1-19"><span class="section-number-4">1.1.19</span> <a href="https://www.yelp.com/biz/european-auto-hause-pasadena-5?osq=independent+audi">European Auto Hause - 41 Photos &amp; 201 Reviews - Auto Repair - 1599 E Walnut St, Pasadena, Pasadena, CA - Phone Number - Yelp</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge family">family</span></span></h4>
+<div class="outline-text-4" id="text-1-1-19">
+<p>
+  German car shop in Pasadena
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-10 Tue 13:46]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-20" class="outline-4">
+<h4 id="sec-1-1-20"><span class="section-number-4">1.1.20</span> <a href="https://github.com/zilongshanren/spacemacs-private">子龙山人配置</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h4>
+<div class="outline-text-4" id="text-1-1-20">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-08 Sun 20:38]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-21" class="outline-4">
+<h4 id="sec-1-1-21"><span class="section-number-4">1.1.21</span> <a href="https://vim.rtorr.com">Vim cheat sheet</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h4>
+<div class="outline-text-4" id="text-1-1-21">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-08 Sun 00:35]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-22" class="outline-4">
+<h4 id="sec-1-1-22"><span class="section-number-4">1.1.22</span> <a href="http://cestlaz.github.io/posts/using-emacs-23-capture-1/#.WG7VLLGZMUQ">org capture</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h4>
+<div class="outline-text-4" id="text-1-1-22">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 21:20]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-23" class="outline-4">
+<h4 id="sec-1-1-23"><span class="section-number-4">1.1.23</span> <a href="https://www.raspberrypi.org/learning/visualising-sorting-with-python/">sorting alg</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span></h4>
+<div class="outline-text-4" id="text-1-1-23">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 20:57]</span></span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-24" class="outline-4">
+<h4 id="sec-1-1-24"><span class="section-number-4">1.1.24</span> <a href="http://spacemacs.org/layers/LAYERS.html">spacemacs layers</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h4>
+<div class="outline-text-4" id="text-1-1-24">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 15:54]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-25" class="outline-4">
+<h4 id="sec-1-1-25"><span class="section-number-4">1.1.25</span> <a href="http://iam.travishartwell.net/2015/07/29/how-to-make-a-pr-for-spacemacs/">make a pull request for spacemacs</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h4>
+<div class="outline-text-4" id="text-1-1-25">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 11:35]</span></span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-26" class="outline-4">
+<h4 id="sec-1-1-26"><span class="section-number-4">1.1.26</span> <a href="http://guleilab.com/2016/05/05/OrgPomodoroNotifier/">给org-pomodoro增加桌面通知功能</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span></h4>
+<div class="outline-text-4" id="text-1-1-26">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-05 Thu 16:34]</span></span>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> IT</h3>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> math</h3>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> family</h3>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Notes</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 2013</h3>
+<div class="outline-text-3" id="text-2-1">
+</div><div id="outline-container-sec-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1"><span class="section-number-4">2.1.1</span> 2013-04 April</h4>
+<div class="outline-text-4" id="text-2-1-1">
+</div><ol class="org-ol"><li><a id="sec-2-1-1-1" name="sec-2-1-1-1"></a>2013-04-17 Wednesday<br ><ol class="org-ol"><li><a id="sec-2-1-1-1-1" name="sec-2-1-1-1-1"></a>repeaters in deadline/schedule cannot be inserted directly after C-c C-s&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-17 Wed 11:52]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-2" name="sec-2-1-1-1-2"></a>stochastic parabolicity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-2">
+<p>
+Before, we study the parabolicity as follows. First, we assume there exists a classical solution to the equation. Then taking the Fourier transform on both sides of the PDE results in an SDE with respect to the transformed function. After solving the SDE, we can compute the second moment of the solution and derive the stochastic parabolicity condition.
+</p>
+
+<p>
+There is another way to achieve this. We first consider the smooth modification of the solution. Then we make the change of variable, for example, v(t,x) = u(t, x-&sigma; W<sub>t</sub>). We will obtain a deterministic PDE of v. At last, the stochastic parabolicity follows from the well-posedness of the PDE.
+<span class="timestamp-wrapper"><span class="timestamp">[2013-02-22 Fri 18:47]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-3" name="sec-2-1-1-1-3"></a>Lipschitz continuity is stronger than linear growth&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-3">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-17 Wed 17:45]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-4" name="sec-2-1-1-1-4"></a>Criterion of C<sup>n</sup> diffeomorphism&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-4">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-02-23 Sat 22:39]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-5" name="sec-2-1-1-1-5"></a>Teaching position jobs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-5">
+<p>
+     <a href="http://www.higheredjobs.com/">http://www.higheredjobs.com/</a>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-02-23 Sat 22:58]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-6" name="sec-2-1-1-1-6"></a>Check the Poisson equation and White noise in space&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-6">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-02-24 Sun 23:12]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-7" name="sec-2-1-1-1-7"></a>SPDEs and SDEs (or diffusion processes)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-7">
+<ol class="org-ol">
+<li>Kolmogorov equation (backward, forward)
+</li>
+<li>forward SDES and linear parabolic backward SPDEs
+</li>
+<li>backward stochastic flow and forward SPDE  
+</li>
+</ol>
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-03-03 Sun 21:28]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-8" name="sec-2-1-1-1-8"></a>Three approaches to construct a diffusion process:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-8">
+<ol class="org-ol">
+<li>Semigroup
+</li>
+<li>Partial differential equation
+Kolmogorov backward equation is for the transition distribution, but the forward equation is for the transition density
+</li>
+<li>Stochastic differential equation
+<span class="timestamp-wrapper"><span class="timestamp">[2013-03-07 Thu 22:25]</span></span>
+</li>
+</ol>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-9" name="sec-2-1-1-1-9"></a>How to define a backward stochastic integral&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-9">
+<p>
+  Nothing new for the integration, but need to understand the "backward" Wiener process. 
+  There is a confusion thing. In the forward integral, the Riemann sum is f<sub>i</sub> (B<sub>i+1</sub> - B<sub>i</sub>). f<sub>i</sub> is F<sub>i</sub> measurable, and B<sub>(i+1)</sub>-B<sub>i</sub> is F<sub>i+1</sub> measurable as well. We know that the two are independent, but they are both F<sub>i+1</sub> measurable. Then is there anything wrong? NO!!! This is a stupid question, because the independence has nothing to do with the filtration or the sigma field.
+<span class="timestamp-wrapper"><span class="timestamp">[2013-03-07 Thu 23:30]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-10" name="sec-2-1-1-1-10"></a>Find references about how the noise affects the equation, for example, find one that the noise may improve the equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-10">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-03-12 Tue 11:50]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-11" name="sec-2-1-1-1-11"></a>The conjugate of product of two complex numbers is the product of conjugate of both.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-11">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-03-27 Wed 12:59]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-12" name="sec-2-1-1-1-12"></a>matrix equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-12">
+<p>
+  \((UW)' = U'W + UW'\)? check!
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-15 Mon 00:50]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-13" name="sec-2-1-1-1-13"></a>Solve matrix equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-13">
+<p>
+\[ \dot{X} = AX + XB \]
+</p>
+<ol class="org-ol">
+<li>let \(X = UW\), where \(\dot{U} = AU\)
+</li>
+<li>\(\dot{U}W + U\dot{W} =AUW + U\dot{W} = AUW + UWB\)
+</li>
+</ol>
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-15 Mon 00:56]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-14" name="sec-2-1-1-1-14"></a>principal symbol vs. full symbol&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-14">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-16 Tue 14:36]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-15" name="sec-2-1-1-1-15"></a>codes in emacs are case sensitive&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ></li>
+<li><a id="sec-2-1-1-1-16" name="sec-2-1-1-1-16"></a>the order of codes in .emacs matters&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-16">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-16 Tue 15:37]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-17" name="sec-2-1-1-1-17"></a>color theme in aquamacs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-17">
+<p>
+  tried to download the color theme package and install, failed;
+  tried to write the codes in .emacs or preferences.el, failed;
+  at last found the related file "color-theme-library.el" and tried
+  to add the codes, failed;
+  last attempt, overwrite one of the themes, SUCCEED!
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-16 Tue 15:46]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-1-18" name="sec-2-1-1-1-18"></a>orgmode vs AucTex&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-1-1-1-18">
+<p>
+  I can write everything in orgmode since it is so easy to generate
+  hierarchical structure. When I need to code lots of math formulae, I
+  only need to switch it to LaTex mode.
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-16 Tue 15:57]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-1-2" name="sec-2-1-1-2"></a>2013-04-18 Thursday<br ><ol class="org-ol"><li><a id="sec-2-1-1-2-1" name="sec-2-1-1-2-1"></a>how to post a wordpress blog by orgmode&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-1-1-2-1">
+<p>
+  <a href="https://www.evernote.com/shard/s130/sh/e030df30-86ac-4836-b1f4-64f0a2938a52/fb1a6ba1481a869da133ca3a2ab2362f">https://www.evernote.com/shard/s130/sh/e030df30-86ac-4836-b1f4-64f0a2938a52/fb1a6ba1481a869da133ca3a2ab2362f</a>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-18 Thu 00:30]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-2-2" name="sec-2-1-1-2-2"></a>Petrovskij 2b-parabolic vs Shilov-parabolic (with constant coefficients)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-2-2">
+<p>
+     Petrovskij =&gt; Shilov
+     Check the definitions on Egorov-Shubin's book and work out
+     simple examples
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-18 Thu 22:34]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-1-3" name="sec-2-1-1-3"></a>2013-04-19 Friday<br ><ol class="org-ol"><li><a id="sec-2-1-1-3-1" name="sec-2-1-1-3-1"></a>what's the difference between Kim's condition and ours? how to derive the parabolic condition for systems?&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-3-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-19 Fri 08:07]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-3-2" name="sec-2-1-1-3-2"></a>Eigenvalues of a matrix involving Kronecker products&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span>&#xa0;<span class="badge project">project</span></span><br ><div class="outline-text-6" id="text-2-1-1-3-2">
+<p>
+     what's the eigenvalue of
+     \[
+        A\otimes I + I \otimes A - \Sigma \otimes \Sigma
+      \]
+     in terms of \(A\) and \(\Sigma\).
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-19 Fri 12:08]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-3-3" name="sec-2-1-1-3-3"></a>learning to read&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge programming">programming</span></span><br ><div class="outline-text-6" id="text-2-1-1-3-3">
+<ol class="org-ol">
+<li>cin ignores white space; the user could type two inputs separated by any number of white spaces
+</li>
+<li>cin reads successively through the input stream of
+information. For example
+</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-<C++>">int a;
+      float b;
+      cout &lt;&lt; "Input two integers: ";
+      cin &gt;&gt; a &gt;&gt; b;
+      cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; " " &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;
+</pre>
+</div>
+<p>
+If the user enters 10.3, cin will read the value 10 into the variable
+a and then will continue to read 0.3 into b. So the result will 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-<C++>">a = 10 b = 0.3
+</pre>
+</div>
+</div>
+</li>
+<li><a id="sec-2-1-1-3-4" name="sec-2-1-1-3-4"></a>comment code&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge programming">programming</span></span><br ><div class="outline-text-6" id="text-2-1-1-3-4">
+<p>
+     single line comment: <i>/
+     block comment: /* and *</i>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-19 Fri 22:22]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-1-4" name="sec-2-1-1-4"></a>2013-04-24 Wednesday<br ><ol class="org-ol"><li><a id="sec-2-1-1-4-1" name="sec-2-1-1-4-1"></a>quasi-parabolic equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-4-1">
+<p>
+     Lipschitz =&gt; linear growth =&gt; priori estimates
+     So usually, people try Lipschitz first, then linear growth and
+     polynomial growth.
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-24 Wed 10:24]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-4-2" name="sec-2-1-1-4-2"></a>mollifier needs integrability&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-1-4-2">
+<p>
+     for example, we cannot mollify a constant
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-24 Wed 10:27]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-1-4-3" name="sec-2-1-1-4-3"></a>invoke the table of contents buffer with C-c =&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-1-1-4-3">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-24 Wed 23:48]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-1-5" name="sec-2-1-1-5"></a>2013-04-25 Thursday<br ><ol class="org-ol"><li><a id="sec-2-1-1-5-1" name="sec-2-1-1-5-1"></a>.bib files location&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-1-1-5-1">
+<p>
+     you can put your .bib file in a local tree, like
+     /tex/texmf/bibtex/bib, instead of putting it together with .tex
+     files under the same folder. but don't know how to figure out
+     Reftex, so for now i have to make a compromise and make a folder
+     to store all my .tex files and my .bib files.
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-25 Thu 17:10]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-1-6" name="sec-2-1-1-6"></a>2013-04-27 Saturday<br ><ol class="org-ol"><li><a id="sec-2-1-1-6-1" name="sec-2-1-1-6-1"></a>use Yasnippet to generate Latex template&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-1-1-6-1">
+<p>
+<a href="http://tex.stackexchange.com/questions/51204/working-with-templates/51250#5125">Yasnippet</a>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-27 Sat 01:40]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-1-7" name="sec-2-1-1-7"></a>2013-04-29 Monday<br ><ol class="org-ol"><li><a id="sec-2-1-1-7-1" name="sec-2-1-1-7-1"></a>Skim setup&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge Mac">Mac</span></span><br ><div class="outline-text-6" id="text-2-1-1-7-1">
+<ol class="org-ol">
+<li>To set Skim as a default PDF viewer, instead of the pre-installed
+</li>
+</ol>
+<p>
+Previewer, Ctrl + mouse, then "get info", change "open with' to the application
+you like, press "change all" and "yes" to confirm.
+You cannot just choose a PDF file and Ctrl + mouse, and then
+"open with". This way only applies to the file you choose, not
+all of this kind.
+</p>
+<ol class="org-ol">
+<li>To set it for Aquamacs, open Skim and "Preferences =&gt; Sync =&gt;
+Preset: Aquamacs; Command: emacsclient; Arguments: &#x2013;no-wait
++%line "%file". The last two are automatically filled if you
+choose a preset application
+</li>
+</ol>
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-04-29 Mon 22:51]</span></span>
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+<div id="outline-container-sec-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2"><span class="section-number-4">2.1.2</span> 2013-05 May</h4>
+<div class="outline-text-4" id="text-2-1-2">
+</div><ol class="org-ol"><li><a id="sec-2-1-2-1" name="sec-2-1-2-1"></a>2013-05-01 Wednesday<br ><ol class="org-ol"><li><a id="sec-2-1-2-1-1" name="sec-2-1-2-1-1"></a>Add folder to Favorite in Mac&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge Mac">Mac</span></span><br ><div class="outline-text-6" id="text-2-1-2-1-1">
+<p>
+     Simply select the folder and press "Command + T"
+<span class="timestamp-wrapper"><span class="timestamp">[2013-05-01 Wed 20:37]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-2-2" name="sec-2-1-2-2"></a>2013-05-02 Thursday<br ><ol class="org-ol"><li><a id="sec-2-1-2-2-1" name="sec-2-1-2-2-1"></a>recapitulate the essential steps&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge English">English</span></span><br ><div class="outline-text-6" id="text-2-1-2-2-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-05-02 Thu 22:38]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-2-2-2" name="sec-2-1-2-2-2"></a>(local) martingale representation theorem&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-2-2-2">
+<p>
+     check the comment about the references.     <a href="http://almostsure.wordpress.com/2010/05/25/the-martingale-representation-theorem/">http://almostsure.wordpress.com/2010/05/25/the-martingale-representation-theorem/</a>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-05-02 Thu 22:59]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-2-3" name="sec-2-1-2-3"></a>2013-05-14 Tuesday<br ><ol class="org-ol"><li><a id="sec-2-1-2-3-1" name="sec-2-1-2-3-1"></a>Before Midnight&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge movie">movie</span></span><br ><div class="outline-text-6" id="text-2-1-2-3-1">
+<p>
+I don't know this is my favorite love story or not, but it is
+definitely in my top 3 list. By the way, "Love Letter" is another one
+I like. 
+</p>
+
+<p>
+I heard of "Before Sunset/Sunrise" long time ago, but just saw it
+with my wife recently. I am very impressed by the way the director
+told the story. It is purely endless conversations and discussions
+between two strangers, but attractive to each other. I think it is
+so called "知己" in Chinese. Beyond that, don't think too hard about
+the reality or how the end should be. Just relax and enjoy the
+precious moment and being romantic.
+<span class="timestamp-wrapper"><span class="timestamp">[2013-05-14 Tue 23:11]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-2-4" name="sec-2-1-2-4"></a>2013-05-19 Sunday<br ><ol class="org-ol"><li><a id="sec-2-1-2-4-1" name="sec-2-1-2-4-1"></a>The principle of causality&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-2-4-1">
+<p>
+In the definition of strong solution to an SDE, it is required that
+the solution is adapted. It corresponds to our intuitive
+understanding the solution as an output in a dynamical system. The
+principle of causality comes from a philosophical term, but it is
+very common in physics as well. It requires that the output can only
+depend on the past or present state of the system. Therefore,
+"adapted" is nothing but a different name for causality, in the
+context of stochastic analysis, also fitted for the financial mathematics.
+<span class="timestamp-wrapper"><span class="timestamp">[2013-05-19 Sun 22:06]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-2-5" name="sec-2-1-2-5"></a>2013-05-22 Wednesday<br ><ol class="org-ol"><li><a id="sec-2-1-2-5-1" name="sec-2-1-2-5-1"></a>Westminster Abbey&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge quote">quote</span></span><br ><div class="outline-text-6" id="text-2-1-2-5-1">
+<p>
+When I was a young man, I wanted to change the world. I found it was
+difficult to change the world, so I tried to change my nation. When I
+found I couldn't change the nation, I began to focus on my town. I
+couldn't change the town and as an older man, I tried to change my
+family. Now, as an old man, I realize the only thing I can change is
+myself, and suddenly I realize that if long ago I had changed myself,
+I could have made an impact on my family. My family and I could have
+made an impact on our town. Their impact could have changed the nation
+and I could indeed have changed the world.
+</p>
+
+<p>
+It is said that these lines were inscribed on a tombstone in
+Westminster Abbey, but they were not. It is quoted as such in a popular American anthology called "Chicken Soup for the Soul!"
+<span class="timestamp-wrapper"><span class="timestamp">[2013-05-22 Wed 22:20]</span></span>
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+<div id="outline-container-sec-2-1-3" class="outline-4">
+<h4 id="sec-2-1-3"><span class="section-number-4">2.1.3</span> 2013-06 June</h4>
+<div class="outline-text-4" id="text-2-1-3">
+</div><ol class="org-ol"><li><a id="sec-2-1-3-1" name="sec-2-1-3-1"></a>2013-06-04 Tuesday<br ></li></ol>
+</div>
+<div id="outline-container-sec-2-1-4" class="outline-4">
+<h4 id="sec-2-1-4"><span class="section-number-4">2.1.4</span> 2013-08 August</h4>
+<div class="outline-text-4" id="text-2-1-4">
+</div><ol class="org-ol"><li><a id="sec-2-1-4-1" name="sec-2-1-4-1"></a>2013-08-20 Tuesday<br ><ol class="org-ol"><li><a id="sec-2-1-4-1-1" name="sec-2-1-4-1-1"></a>:math:<br ><div class="outline-text-6" id="text-2-1-4-1-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-20 Tue 13:02]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-4-1-2" name="sec-2-1-4-1-2"></a>SDE with one Brownian motion has the same solution in law as the one with two independent Brownian motions, check Stroock-Varadhan.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span>&#xa0;<span class="badge project">project</span></span><br ><div class="outline-text-6" id="text-2-1-4-1-2">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-20 Tue 13:11]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-4-1-3" name="sec-2-1-4-1-3"></a>Optional sampling theorem and hitting time&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-4-1-3">
+<p>
+Suppose Ta and Tb are two stopping time, then E M<sub>Ta</sub> = E M<sub>Tb</sub> if M
+is a continuous martingale and uniform integrable. But M<sub>Ta</sub> = a, and M<sub>Tb</sub>
+= b if T is defined as a hitting time. If we choose a and b
+different, then it seems it contradicts with the optional sampling
+theorem. The problem is that P(M<sub>Ta</sub> = a) = 1 or equivalently P(Ta is
+finite) = 1 is not true if M is uniform integrable.
+</p>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-20 Tue 20:52]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-4-2" name="sec-2-1-4-2"></a>2013-08-22 Thursday<br ><ol class="org-ol"><li><a id="sec-2-1-4-2-1" name="sec-2-1-4-2-1"></a>Shinkansen round trip from Kyoto to Tokyo 25560 yen paid&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span>&#xa0;<span class="badge travel">travel</span></span><br ><div class="outline-text-6" id="text-2-1-4-2-1">
+<p>
+Okinawa conference flight ticket one way 12500 yen paid
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-22 Thu 15:28]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-4-3" name="sec-2-1-4-3"></a>2013-08-24 Saturday<br ><ol class="org-ol"><li><a id="sec-2-1-4-3-1" name="sec-2-1-4-3-1"></a>:math:<br ><div class="outline-text-6" id="text-2-1-4-3-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-24 Sat 19:29]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-4-3-2" name="sec-2-1-4-3-2"></a>There is a density for the sum of two random variables as long as one of them is absolute continuous, see Lamperti's probability book&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-4-3-2">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-24 Sat 22:11]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-4-4" name="sec-2-1-4-4"></a>2013-08-25 Sunday<br ><ol class="org-ol"><li><a id="sec-2-1-4-4-1" name="sec-2-1-4-4-1"></a>Levy processes and change of time&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span>&#xa0;<span class="badge book">book</span></span><br ><div class="outline-text-6" id="text-2-1-4-4-1">
+<p>
+X<sub>t</sub> is a Levy, h(t) is a strictly increasing continuous function,
+then X(h(t)) is not necessarily Levy, but an additive process. This
+is because h(t+s) - h(s) may still depends on s. But if h(t) = c*t
+for c&gt;0, then h(t+s)-h(s) = c*t, not depending on s any more. In this
+case X(h(t)) is Levy.
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-25 Sun 19:05]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-4-4-2" name="sec-2-1-4-4-2"></a>Levy process and left continuity&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span>&#xa0;<span class="badge book">book</span></span><br ><div class="outline-text-6" id="text-2-1-4-4-2">
+<p>
+If X is Levy then for any t, X<sub>t</sub> = X<sub>t</sub>- a.s. This is because Levy
+process is stochastically continuous.
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-25 Sun 20:00]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-1-4-4-3" name="sec-2-1-4-4-3"></a>Inheritance of independence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span>&#xa0;<span class="badge book">book</span></span><br ><div class="outline-text-6" id="text-2-1-4-4-3">
+<p>
+Prop. 1.13 on page 6 of Sato's Levy processes book
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-25 Sun 20:26]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-4-5" name="sec-2-1-4-5"></a>2013-08-28 Wednesday<br ><ol class="org-ol"><li><a id="sec-2-1-4-5-1" name="sec-2-1-4-5-1"></a>Characteristic function and independence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-4-5-1">
+<p>
+We know that if X and Y are independent, then the characteristic
+function of aX + bY is the produce of the characteristic functions of
+aX and bY. The question is if the converse still true. No textbook
+confirms the statement. Let us look at the following reasoning. Say
+a=(a1&#x2026;an) is any vector such that E(e<sup>(i(a,X))</sup> = &prod;<sub>k=1</sub><sup>n</sup>
+E(e<sup>iakXk</sup>). LHS corresponds to the distribution of the joint r.v X,
+and RHS corresponds to the product of distributions of Xi's. Then
+they are independent. Is it wrong? Or it is so simple that no one
+wants to claim for credit?
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-28 Wed 18:09]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-4-6" name="sec-2-1-4-6"></a>2013-08-29 Thursday<br ><ol class="org-ol"><li><a id="sec-2-1-4-6-1" name="sec-2-1-4-6-1"></a>Okinawa conference back to Kansai airport (KIX) 7060 yen prepaid&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span>&#xa0;<span class="badge travel">travel</span></span><br ><div class="outline-text-6" id="text-2-1-4-6-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-29 Thu 15:54]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-4-7" name="sec-2-1-4-7"></a>2013-08-31 Saturday<br ><ol class="org-ol"><li><a id="sec-2-1-4-7-1" name="sec-2-1-4-7-1"></a>input "port" to activate macports&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge osx">osx</span></span><br ><div class="outline-text-6" id="text-2-1-4-7-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-08-31 Sat 16:52]</span></span>
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+<div id="outline-container-sec-2-1-5" class="outline-4">
+<h4 id="sec-2-1-5"><span class="section-number-4">2.1.5</span> 2013-09 September</h4>
+<div class="outline-text-4" id="text-2-1-5">
+</div><ol class="org-ol"><li><a id="sec-2-1-5-1" name="sec-2-1-5-1"></a>2013-09-01 Sunday<br ></li>
+<li><a id="sec-2-1-5-2" name="sec-2-1-5-2"></a>2013-09-08 Sunday<br ><ol class="org-ol"><li><a id="sec-2-1-5-2-1" name="sec-2-1-5-2-1"></a>uniqueness of heat equation up to exponential growth&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-5-2-1">
+<p>
+If \(\Gamma(t,x;s,y;a)\) is the fundamental solution to the heat
+equation
+\[
+ \Partial_t u = a\Delta u,
+ \]
+for any given \((s,y)\), then it is the fundamental solution to the
+equation with \(-a\), which can be used to prove the uniqueness up to
+exponential growth.
+<span class="timestamp-wrapper"><span class="timestamp">[2013-09-08 Sun 22:44]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-5-3" name="sec-2-1-5-3"></a>2013-09-09 Monday<br ><ol class="org-ol"><li><a id="sec-2-1-5-3-1" name="sec-2-1-5-3-1"></a>Change of variable for multidimensional case&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-5-3-1">
+<p>
+If \(x = Ay\), where \(y\) is a \(n\times n\) matrix, then 
+\[
+ \int f(x) dx = det(A)^{-1} \int f(y) dy.
+ \]
+The Jocobian is nothing but the volume ratio and the geometric
+interpretation of determinant is exactly the volume of a \(n\)
+dimensional parallelogram.
+<span class="timestamp-wrapper"><span class="timestamp">[2013-09-09 Mon 01:05]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-5-4" name="sec-2-1-5-4"></a>2013-09-13 Friday<br ><ol class="org-ol"><li><a id="sec-2-1-5-4-1" name="sec-2-1-5-4-1"></a>What is the dual of&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-5-4-1">
+<p>
+\(W^{p,q}\)?
+<span class="timestamp-wrapper"><span class="timestamp">[2013-09-13 Fri 11:30]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-1-5-5" name="sec-2-1-5-5"></a>2013-09-24 Tuesday<br ><ol class="org-ol"><li><a id="sec-2-1-5-5-1" name="sec-2-1-5-5-1"></a>read Bally's note on chapter 3&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-1-5-5-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-09-24 Tue 08:29]</span></span>
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+<div id="outline-container-sec-2-1-6" class="outline-4">
+<h4 id="sec-2-1-6"><span class="section-number-4">2.1.6</span> 2013-10 October</h4>
+<div class="outline-text-4" id="text-2-1-6">
+</div><ol class="org-ol"><li><a id="sec-2-1-6-1" name="sec-2-1-6-1"></a>2013-10-19 Saturday<br ><ol class="org-ol"><li><a id="sec-2-1-6-1-1" name="sec-2-1-6-1-1"></a>compactness in metric space is equivalent to completeness and totally boundedness. think about the Heine-Borel theorem in Euclidean space: compactness is the same as the closedness and boundedness&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span>&#xa0;<span class="badge topology">topology</span></span><br ><div class="outline-text-6" id="text-2-1-6-1-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-10-19 Sat 21:17]</span></span>
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+<div id="outline-container-sec-2-1-7" class="outline-4">
+<h4 id="sec-2-1-7"><span class="section-number-4">2.1.7</span> 2013-11 November</h4>
+<div class="outline-text-4" id="text-2-1-7">
+</div><ol class="org-ol"><li><a id="sec-2-1-7-1" name="sec-2-1-7-1"></a>2013-11-21 Thursday<br ><ol class="org-ol"><li><a id="sec-2-1-7-1-1" name="sec-2-1-7-1-1"></a>differentiate Gammma function&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span>&#xa0;<span class="badge question">question</span></span><br ><div class="outline-text-6" id="text-2-1-7-1-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2013-11-21 Thu 16:18]</span></span>
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 2014</h3>
+<div class="outline-text-3" id="text-2-2">
+</div><div id="outline-container-sec-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> 2014-10 October</h4>
+<div class="outline-text-4" id="text-2-2-1">
+</div><ol class="org-ol"><li><a id="sec-2-2-1-1" name="sec-2-2-1-1"></a>2014-10-30 Thursday<br ><ol class="org-ol"><li><a id="sec-2-2-1-1-1" name="sec-2-2-1-1-1"></a>back to org mode&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-2-1-1-1">
+<p>
+learn how to refile the note
+<span class="timestamp-wrapper"><span class="timestamp">[2014-10-30 Thu 17:27]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-2-1-2" name="sec-2-2-1-2"></a>2014-10-31 Friday<br ><ol class="org-ol"><li><a id="sec-2-2-1-2-1" name="sec-2-2-1-2-1"></a>differential calculus book by Cartan&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge book">book</span>&#xa0;<span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-2-1-2-1">
+<p>
+     This is a book about calculus on Banach space.
+<span class="timestamp-wrapper"><span class="timestamp">[2014-10-31 Fri 11:45]</span></span>
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+<div id="outline-container-sec-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> 2014-11 November</h4>
+<div class="outline-text-4" id="text-2-2-2">
+</div><ol class="org-ol"><li><a id="sec-2-2-2-1" name="sec-2-2-2-1"></a>2014-11-04 Tuesday<br ><ol class="org-ol"><li><a id="sec-2-2-2-1-1" name="sec-2-2-2-1-1"></a>energy estimate for heat equation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-2-2-1-1">
+<p>
+u<sub>t</sub> = u<sub>xx</sub> or u<sub>t</sub> = u<sub>xx</sub> - u
+The first one, we may need Poincare's inequality to replace |Du| by |u|<sub>1</sub>.
+<span class="timestamp-wrapper"><span class="timestamp">[2014-11-04 Tue 09:08]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-2-2-2" name="sec-2-2-2-2"></a>2014-11-10 Monday<br ><ol class="org-ol"><li><a id="sec-2-2-2-2-1" name="sec-2-2-2-2-1"></a>PDE in whole space and bounded domain&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-2-2-2-1">
+<p>
+It seems that they both have pros and cons. For example, in a bounded
+domain together with certain boundary problem, we can use some
+Sobolev inequalities, such as Poincare's inequality; while in the
+whole space, we may resort to the help of Fourier transform.
+<span class="timestamp-wrapper"><span class="timestamp">[2014-11-10 Mon 10:37]</span></span>
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 2015</h3>
+<div class="outline-text-3" id="text-2-3">
+</div><div id="outline-container-sec-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1"><span class="section-number-4">2.3.1</span> 2015-08 August</h4>
+<div class="outline-text-4" id="text-2-3-1">
+</div><ol class="org-ol"><li><a id="sec-2-3-1-1" name="sec-2-3-1-1"></a>2015-08-01 Saturday<br ></li></ol>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 2016</h3>
+<div class="outline-text-3" id="text-2-4">
+</div><div id="outline-container-sec-2-4-1" class="outline-4">
+<h4 id="sec-2-4-1"><span class="section-number-4">2.4.1</span> 2016-08 August</h4>
+<div class="outline-text-4" id="text-2-4-1">
+</div><ol class="org-ol"><li><a id="sec-2-4-1-1" name="sec-2-4-1-1"></a>2016-08-27 Saturday<br ><ol class="org-ol"><li><a id="sec-2-4-1-1-1" name="sec-2-4-1-1-1"></a>change the level by using M-left/right&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge org">org</span></span><br ><div class="outline-text-6" id="text-2-4-1-1-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2016-08-27 Sat 01:13]</span></span>
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+<div id="outline-container-sec-2-4-2" class="outline-4">
+<h4 id="sec-2-4-2"><span class="section-number-4">2.4.2</span> 2016-12 December</h4>
+<div class="outline-text-4" id="text-2-4-2">
+</div><ol class="org-ol"><li><a id="sec-2-4-2-1" name="sec-2-4-2-1"></a>2016-12-19 Monday<br ><ol class="org-ol"><li><a id="sec-2-4-2-1-1" name="sec-2-4-2-1-1"></a>change screenshot save location&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge osx">osx</span></span><br ><div class="outline-text-6" id="text-2-4-2-1-1">
+<p>
+In terminal, input:
+defaults write com.apple.screencapture location ~/Dropbox/Screenshots
+</p>
+
+<p>
+see <a href="https://discussions.apple.com/docs/DOC-9081">this</a>
+</p>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2016-12-19 Mon 11:14]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-4-2-1-2" name="sec-2-4-2-1-2"></a>iOS development&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge IT">IT</span>&#xa0;<span class="badge ios">ios</span></span><br ><div class="outline-text-6" id="text-2-4-2-1-2">
+<p>
+<a href="http://www.jianshu.com/p/4be17ec40cfc">iOS list</a>
+   <span class="timestamp-wrapper"><span class="timestamp">[2016-12-19 Mon 13:34]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-4-2-2" name="sec-2-4-2-2"></a>2016-12-20 Tuesday<br ><ol class="org-ol"><li><a id="sec-2-4-2-2-1" name="sec-2-4-2-2-1"></a>Let Spotlight to search Emacs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-4-2-2-1">
+<p>
+So far, the best solution that has worked for me is to copy the app into the applications directory:
+cp -r <i>usr/local/Cellar/emacs/24.2/Emacs.app /Applications</i>
+</p>
+
+<p>
+Spotlight then finds it with no trouble.
+   <span class="timestamp-wrapper"><span class="timestamp">[2016-12-20 Tue 21:56]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-4-2-3" name="sec-2-4-2-3"></a>2016-12-24 Saturday<br ><ol class="org-ol"><li><a id="sec-2-4-2-3-1" name="sec-2-4-2-3-1"></a>duplicated layer&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-4-2-3-1">
+<p>
+need to put the layer defined by myself under <i>.spacemacs.d/private</i>, otherwise, it will appear a warning saying "duplicated layer&#x2026;"
+   <span class="timestamp-wrapper"><span class="timestamp">[2016-12-24 Sat 17:17]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-4-2-3-2" name="sec-2-4-2-3-2"></a>unknown string of input&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge math">math</span></span><br ><div class="outline-text-6" id="text-2-4-2-3-2">
+<p>
+On the start page of spacemacs, if we click any recent files by mouse, we will have some unknown string of input in the file. It is very bad, especially if I want to open my .tex file, then because of these inputs I cannot compile the file anymore. I checked, the file is changed after I click the mouse. 
+   <span class="timestamp-wrapper"><span class="timestamp">[2016-12-24 Sat 17:20]</span></span>
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+</div>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 2017</h3>
+<div class="outline-text-3" id="text-2-5">
+</div><div id="outline-container-sec-2-5-1" class="outline-4">
+<h4 id="sec-2-5-1"><span class="section-number-4">2.5.1</span> 2017-01 January</h4>
+<div class="outline-text-4" id="text-2-5-1">
+</div><ol class="org-ol"><li><a id="sec-2-5-1-1" name="sec-2-5-1-1"></a>2017-01-03 Tuesday<br ><ol class="org-ol"><li><a id="sec-2-5-1-1-1" name="sec-2-5-1-1-1"></a>给org-pomodoro增加桌面通知功能&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-5-1-1-1">
+<p>
+<a href="http://guleilab.com/2016/05/05/OrgPomodoroNotifier/">http://guleilab.com/2016/05/05/OrgPomodoroNotifier/</a>
+   <span class="timestamp-wrapper"><span class="timestamp">[2017-01-03 Tue 07:14]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-5-1-2" name="sec-2-5-1-2"></a>2017-01-04 Wednesday<br ><ol class="org-ol"><li><a id="sec-2-5-1-2-1" name="sec-2-5-1-2-1"></a>keeps the clocked time of killed pomodoro by setting: customize group: org pomodoro -&gt; org pomodoro keep killed pomodoro time "on"&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-5-1-2-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-04 Wed 02:31]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-5-1-3" name="sec-2-5-1-3"></a>2017-01-05 Thursday<br ></li>
+<li><a id="sec-2-5-1-4" name="sec-2-5-1-4"></a>2017-01-06 Friday<br ><ol class="org-ol"><li><a id="sec-2-5-1-4-1" name="sec-2-5-1-4-1"></a>We have to enable the habits module by customizing org-modules&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-5-1-4-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-06 Fri 11:38]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-5-1-5" name="sec-2-5-1-5"></a>2017-01-07 Saturday<br ><ol class="org-ol"><li><a id="sec-2-5-1-5-1" name="sec-2-5-1-5-1"></a>show pics in dark theme:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span><br ><div class="outline-text-6" id="text-2-5-1-5-1">
+<p>
+  <a href="http://matplotlib.org/users/customizing.html">matplotlibrc</a> 
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 12:46]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-5-2" name="sec-2-5-1-5-2"></a>run multiple shells on emacs:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span>&#xa0;<span class="badge python">python</span></span><br ><div class="outline-text-6" id="text-2-5-1-5-2">
+<p>
+  Another trick, if you use eshell: just as M-x eshell takes you back to <b>eshell</b> (rather than starting a new eshell), if you use a numeric prefix argument it will take you to that eshell buffer. For instance, C-3M-xeshell will take you to *eshell*&lt;3&gt;
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 16:31]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-5-3" name="sec-2-5-1-5-3"></a>matplotlibrc file is modified and stored in ~/.matplotlib/matplotlibrc&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span><br ><div class="outline-text-6" id="text-2-5-1-5-3">
+<p>
+  axes.prop<sub>cycle</sub>     : cycler(‘color’, ‘8cd0d3, 7f9f7f, cc9393, 93e0e3, dc8cc3, f0dfaf, dcdccc’)
+  (compare it to <a href="https://github.com/syl20bnr/spacemacs/blob/master/layers/+lang/ipython-notebook/matplotlibrc">this</a>, which makes syntax errors)
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 16:49]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-5-4" name="sec-2-5-1-5-4"></a>set picture background as white:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span><br ><div class="outline-text-6" id="text-2-5-1-5-4">
+<p>
+  plt.rcParams['axes.facecolor'] = 'white'
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-07 Sat 20:52]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-5-1-6" name="sec-2-5-1-6"></a>2017-01-08 Sunday<br ><ol class="org-ol"><li><a id="sec-2-5-1-6-1" name="sec-2-5-1-6-1"></a>enable auto-completion in ipython layer:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span>&#xa0;<span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-5-1-6-1">
+<ul class="org-ul">
+<li>install jedi package in "dotspacemacs-additional-packages"
+</li>
+<li><a href="https://tkf.github.io/emacs-ipython-notebook/">https://tkf.github.io/emacs-ipython-notebook/</a>
+</li>
+<li><a href="https://www.reddit.com/r/spacemacs/comments/47wpl6/python_goodies_in_ipythonnotebook_layer/">https://www.reddit.com/r/spacemacs/comments/47wpl6/python_goodies_in_ipythonnotebook_layer/</a>
+</li>
+</ul>
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-08 Sun 00:09]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-5-1-7" name="sec-2-5-1-7"></a>2017-01-10 Tuesday<br ><ol class="org-ol"><li><a id="sec-2-5-1-7-1" name="sec-2-5-1-7-1"></a><a href="http://stackoverflow.com/questions/11983024/matplotlib-legends-not-working">python - Matplotlib Legends not working - Stack Overflow</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span><br ><div class="outline-text-6" id="text-2-5-1-7-1">
+<p>
+need to add a comma
+   <span class="timestamp-wrapper"><span class="timestamp">[2017-01-10 Tue 16:43]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-7-2" name="sec-2-5-1-7-2"></a>we can set line with 'k-' for black solid line, but it does not work for 'black-'&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span><br ><div class="outline-text-6" id="text-2-5-1-7-2">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-10 Tue 21:41]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-5-1-8" name="sec-2-5-1-8"></a>2017-01-11 Wednesday<br ></li>
+<li><a id="sec-2-5-1-9" name="sec-2-5-1-9"></a>2017-01-13 Friday<br ><ol class="org-ol"><li><a id="sec-2-5-1-9-1" name="sec-2-5-1-9-1"></a>cannot do interactive plots in EIN&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span>&#xa0;<span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-5-1-9-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-13 Fri 15:45]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-5-1-10" name="sec-2-5-1-10"></a>2017-01-16 Monday<br ></li>
+<li><a id="sec-2-5-1-11" name="sec-2-5-1-11"></a>2017-01-19 Thursday<br ><ol class="org-ol"><li><a id="sec-2-5-1-11-1" name="sec-2-5-1-11-1"></a>recover file from crash&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-5-1-11-1">
+<p>
+M-x recover-this-file
+   <span class="timestamp-wrapper"><span class="timestamp">[2017-01-19 Thu 10:10]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-11-2" name="sec-2-5-1-11-2"></a>display animation inline in jupyter notebook&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge python">python</span></span><br ><div class="outline-text-6" id="text-2-5-1-11-2">
+<p>
+  see <a href="http://louistiao.me/posts/notebooks/embedding-matplotlib-animations-in-jupyter-notebooks/">this</a> blog post
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-19 Thu 11:15]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-11-3" name="sec-2-5-1-11-3"></a>sync emacs files while updated in different terminals&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-5-1-11-3">
+<p>
+  (global-auto-revert-mode t)
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-19 Thu 11:29]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-5-1-12" name="sec-2-5-1-12"></a>2017-01-20 Friday<br ><ol class="org-ol"><li><a id="sec-2-5-1-12-1" name="sec-2-5-1-12-1"></a><a href="//35DFEC89-D30F-42D0-84E2-5296094C51C9@gmail.com">求Facebook DS 电话面试和onsite面经</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge job">job</span></span><br ><div class="outline-text-6" id="text-2-5-1-12-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-20 Fri 11:46]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-5-1-13" name="sec-2-5-1-13"></a>2017-01-23 Monday<br ><ol class="org-ol"><li><a id="sec-2-5-1-13-1" name="sec-2-5-1-13-1"></a><a href="http://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers">saving - How do I automatically save org-mode buffers? - Emacs Stack Exchange</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-5-1-13-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-23 Mon 18:57]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-5-1-14" name="sec-2-5-1-14"></a>2017-01-25 Wednesday<br ><ol class="org-ol"><li><a id="sec-2-5-1-14-1" name="sec-2-5-1-14-1"></a><a href="http://stackoverflow.com/questions/38133775/how-to-rename-commits-with-wrong-author-in-git">github - How to rename commits with wrong author in git - Stack Overflow</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge git">git</span></span><br ><div class="outline-text-6" id="text-2-5-1-14-1">
+<p>
+  Go to the repo directory, and type the command as in the link.
+  Then you need to push local repo to remote by force without conflicts:
+  'git push -f': see
+  <a href="http://stackoverflow.com/questions/10510462/force-git-push-to-overwrite-remote-files">Force \"git push\" to overwrite remote files - Stack Overflow</a> 
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-25 Wed 17:19]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-14-2" name="sec-2-5-1-14-2"></a><a href="https://www.youtube.com/watch?v=h1e8oC7g0Ps&amp;t=333s">Troubleshooting: Updates Rejected When Pushing to GitHub - YouTube</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge git">git</span></span><br ><div class="outline-text-6" id="text-2-5-1-14-2">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-25 Wed 17:49]</span></span>
+</p>
+</div>
+</li></ol>
+</li>
+<li><a id="sec-2-5-1-15" name="sec-2-5-1-15"></a>2017-01-30 Monday<br ><ol class="org-ol"><li><a id="sec-2-5-1-15-1" name="sec-2-5-1-15-1"></a><a href="http://emacs.stackexchange.com/questions/9835/how-can-i-prevent-company-mode-completing-numbers">completion - How can I prevent company-mode completing numbers? - Emacs Stack Exchange</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge emacs">emacs</span></span><br ><div class="outline-text-6" id="text-2-5-1-15-1">
+<p>
+ignore number auto completion
+   <span class="timestamp-wrapper"><span class="timestamp">[2017-01-30 Mon 15:55]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-15-2" name="sec-2-5-1-15-2"></a><a href="http://www.dataperspective.info/2014/02/data-analysis-steps.html">Data Analysis Steps ~ Data Perspective</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge ML">ML</span></span><br ><div class="outline-text-6" id="text-2-5-1-15-2">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-30 Mon 17:05]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-15-3" name="sec-2-5-1-15-3"></a><a href="https://www.r-bloggers.com/exploratory-data-analysis-techniques/">Exploratory data analysis techniques | R-bloggers</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge ML">ML</span></span><br ><div class="outline-text-6" id="text-2-5-1-15-3">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-30 Mon 17:06]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-15-4" name="sec-2-5-1-15-4"></a><a href="http://www.stat.cmu.edu/~hseltman/309/Book/chapter4.pdf">Notes on EDA</a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge ML">ML</span></span><br ><div class="outline-text-6" id="text-2-5-1-15-4">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2017-01-30 Mon 17:07]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-15-5" name="sec-2-5-1-15-5"></a>lingua franca&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge language">language</span></span><br ><div class="outline-text-6" id="text-2-5-1-15-5">
+<p>
+it means "common language", for example, R is the lingua franca of data science in academia.
+    <span class="timestamp-wrapper"><span class="timestamp">[2017-01-30 Mon 17:13]</span></span>
+</p>
+</div>
+</li>
+<li><a id="sec-2-5-1-15-6" name="sec-2-5-1-15-6"></a>de facto&#xa0;&#xa0;&#xa0;<span class="tag"><span class="badge language">language</span></span><br ><div class="outline-text-6" id="text-2-5-1-15-6">
+<p>
+it means "in fact".
+    <span class="timestamp-wrapper"><span class="timestamp">[2017-01-30 Mon 17:16]</span></span>
+</p>
+</div>
+</li></ol>
+</li></ol>
+</div>
+</div>
+</div>
+</div><div class="col-md-3"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. Links</a>
+<ul class="nav">
+<li><a href="#sec-1-1">1.1. to read</a></li>
+<li><a href="#sec-1-2">1.2. IT</a></li>
+<li><a href="#sec-1-3">1.3. math</a></li>
+<li><a href="#sec-1-4">1.4. family</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. Notes</a>
+<ul class="nav">
+<li><a href="#sec-2-1">2.1. 2013</a></li>
+<li><a href="#sec-2-2">2.2. 2014</a></li>
+<li><a href="#sec-2-3">2.3. 2015</a></li>
+<li><a href="#sec-2-4">2.4. 2016</a></li>
+<li><a href="#sec-2-5">2.5. 2017</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Jie Zhong</p>
+<p class="date">Created: 2017-01-30 Mon 18:12</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org-mode</a> 9.0.3)</p>
+</div>
+</footer>
+</body>
+</html>
